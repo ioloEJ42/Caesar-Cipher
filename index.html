@@ -11,7 +11,11 @@
       <h1>Super Simple Caesar's Cipher</h1>
       <div class="form-group">
         <label for="original-message">Original Message</label>
-        <input type="text" id="original-message" placeholder="hello" />
+        <input
+          type="text"
+          id="original-message"
+          placeholder="Put your text here!"
+        />
       </div>
       <div class="form-group">
         <label for="shift">Shift</label>
@@ -21,7 +25,44 @@
         <label for="encrypted-message">Encrypted Message</label>
         <input type="text" id="encrypted-message" readonly />
       </div>
+      <!-- Button moved inside the container -->
+      <div class="form-group">
+        <button id="infoButton">How This Works</button>
+      </div>
     </div>
+
+    <!-- Modal -->
+    <div id="infoModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>How This Website Works</h2>
+        <p>
+          This website encrypts text using the Caesar cipher, a substitution
+          cipher where each letter in the plaintext is shifted a certain number
+          of places down the alphabet. For example, with a shift of 1, 'A'
+          becomes 'B', 'B' becomes 'C', etc. The shift value can be set in the
+          'Shift' field.
+        </p>
+        <h2>How The Code Works</h2>
+        <p>
+          The JavaScript code listens for changes in the input fields and
+          recalculates the encrypted message on every change. It uses a simple
+          Caesar cipher algorithm to shift the letters of the message according
+          to the provided key.
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      Made by
+      <a
+        href="https://github.com/ioloEJ42"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><span class="link-text">Iolo Evans Jones</span></a
+      >
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>

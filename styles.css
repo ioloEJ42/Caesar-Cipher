@@ -1,24 +1,51 @@
+:root {
+  --bg-color: #282828; /* background color */
+  --bg-content-color: var(--bg-color); /* background color for #main-content */
+  --fg-color: #e2d3ba; /* default foreground color */
+  --fg-highlight: #a9e5bb; /* foreground color for "highlighted" items */
+  --pane-bg-color: #32302f; /* background color for panes e.g. search bar and link containers */
+  --button-color: #45403d; /* background color for buttons */
+  --text-input-underline-color: #7c6f64; /* underline color for text input when not focused */
+  --text-input-underline-focused-color: var(
+    --fg-highlight
+  ); /* underline color for text input when focused */
+  --link-color: var(--fg-color); /* color for links while not hovered */
+  --link-hover-color: var(--fg-highlight); /* color for links when hovered */
+  --shadow-color: #1d2021; /* shadow color */
+  --border-color: #928374; /* border color, in case borders are used */
+  --darktheme: #2a2a2a;
+  --whitetheme: white;
+}
 body,
 html {
   height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* White text */
 }
 
 .container {
-  width: 80%;
-  margin: 0 auto;
-  max-width: 600px;
+  width: 100%;
+  min-height: 100vh; /* Full viewport height */
+  box-sizing: border-box; /* Include padding and borders in the element's total width and height */
+  padding: 20px; /* Add some padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center contents vertically */
+  align-items: center; /* Center contents horizontally */
 }
 
 h1 {
-  color: #d14;
-  border-bottom: 2px solid #d14;
+  color: #ffffff; /* White text */
+  border-bottom: 2px solid #ffffff; /* White border */
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
 
 .form-group {
+  width: 80%; /* Set a max width for form groups */
+  max-width: 600px; /* Max width for larger screens */
   margin-bottom: 20px;
 }
 
@@ -32,25 +59,128 @@ input[type="number"] {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #ffffff; /* White border */
+  background-color: #1e1e1e; /* Dark input background */
+  color: #ffffff; /* White text */
   border-radius: 4px;
 }
 
 input[type="text"]:focus,
 input[type="number"]:focus {
   outline: none;
-  border-color: #d14;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
-    0 0 8px rgba(209, 68, 20, 0.6);
+  border-color: #ffffff; /* White focus border */
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6); /* White shadow for focus */
 }
 
 input[type="text"][readonly] {
-  background-color: #f7f7f7;
+  background-color: #2a2a2a; /* Darker background for readonly inputs */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .container {
-    width: 95%;
+  .form-group {
+    width: 95%; /* More width for smaller screens */
   }
+}
+/* footer */
+.link-text {
+  display: inline-block;
+  padding: min(1vw, 2px) 0px;
+  background: linear-gradient(var(--fg-highlight), var(--fg-highlight));
+  background-size: 0 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 250ms, color 250ms;
+  color: var(--link-color);
+}
+
+a:hover > .link-text {
+  background-size: 100% 1px;
+  color: var(--link-hover-color);
+}
+
+footer {
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+footer a {
+  color: #ffffff; /* White text for the link */
+  text-decoration: none; /* Optional: removes underline from links */
+}
+
+footer a:hover {
+  text-decoration: underline; /* Optional: adds an underline on hover */
+}
+/* ... existing styles ... */
+
+/* Button Style */
+#infoButton {
+  display: block;
+  margin: 20px auto; /* Adds space above the button and centers it horizontally */
+  padding: 10px 20px;
+  background-color: #333; /* Dark gray background */
+  color: #fff; /* White text */
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px; /* Adjust the font size as needed */
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position to stay in place on the screen */
+    z-index: 1; /* Ensures it's above other content */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0,0,0,0.4); /* Semi-transparent background */
+    display: flex; /* Activates flexbox */
+    justify-content: center; /* Horizontally centers the child elements */
+    align-items: center; /* Vertically centers the child elements */
+}
+
+
+.modal-content {
+    position: relative;
+    background-color: #222; /* Slightly lighter dark background for the modal */
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #444; /* Subtle border */
+    width: 80%;
+    max-width: 600px; /* Set a max-width for larger screens */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Add some shadow for depth */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Style for the close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #ccc;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Heading and Paragraph styles within the modal */
+.modal-content h2 {
+    color: #fff; /* White text for headings */
+    margin-top: 0;
+}
+
+.modal-content p {
+    color: #ddd; /* Light gray text for paragraphs */
+    line-height: 1.6; /* Improved line spacing for readability */
 }
