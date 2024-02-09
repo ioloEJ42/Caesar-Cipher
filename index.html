@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caesar's Cipher</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Super Simple Caesar's Cipher</h1>
+      <div class="form-group">
+        <label for="original-message">Original Message</label>
+        <input type="text" id="original-message" placeholder="hello" />
+      </div>
+      <div class="form-group">
+        <label for="shift">Shift</label>
+        <input type="number" id="shift" value="3" />
+      </div>
+      <div class="form-group">
+        <label for="encrypted-message">Encrypted Message</label>
+        <input type="text" id="encrypted-message" readonly />
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
